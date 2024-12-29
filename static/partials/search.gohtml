@@ -1,0 +1,22 @@
+
+{{ if .SearchTerm }}
+    <p><a href="/api/employees?search={{ .SearchTerm }}">JSON Results</a></p>
+{{ else }}
+    <p><a href="/api/employees">JSON Results</a></p>
+{{ end }}
+
+<table class="table">
+    <thead>
+    <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Job Title</th>
+    </tr>
+    </thead>
+    <tbody>
+        {{ range .Employees}}
+            <tr> <td>{{ .FirstName }}</td><td>{{ .LastName }}</td><td>{{ .JobTitle }}</td></tr>
+        {{ end }}
+    </tbody>
+</table>
+
